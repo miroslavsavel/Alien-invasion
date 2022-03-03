@@ -17,8 +17,11 @@ class Ship:
         self.rect = self.image.get_rect()
 
         #start each new ship at the bottom center of the screen
-        self.rect.midbottom = self.screen_rect.midbottom
+        # place midbottom of the ship at the position midbottom of the screen
+        self.rect.midbottom = self.screen_rect.midbottom        # midbottom is shortcut atribute
+        #self.rect.midbottom = (100,500)        # random position
 
     def blitme(self):
         """Draw the ship at its current location"""
+        # https://stackoverflow.com/questions/37800894/what-is-the-surface-blit-function-in-pygame-what-does-it-do-how-does-it-work
         self.screen.blit(self.image, self.rect)

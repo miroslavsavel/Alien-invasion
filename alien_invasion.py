@@ -11,10 +11,10 @@ class AlienInvasion:
     def __init__(self):
         """Initialize the game and create game resources"""
         pygame.init()
-        self.settings = Settings()
+        self.settings = Settings()     #creating Settings object
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
-        self.ship = Ship(self)
+        self.ship = Ship(self)      # creating ship object with parameter on the object itself
 
 
     def run_game(self):
