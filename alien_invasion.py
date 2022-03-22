@@ -31,18 +31,25 @@ class AlienInvasion:
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                # events https://www.raspberry-pi-geek.com/Archive/2014/05/Pygame-modules-for-interactive-programs
-                if event.key == pygame.K_RIGHT:
-                    # Move the ship to the right
-                    self.ship.moving_right = True
-                if event.key ==pygame.K_LEFT:
-                    # move ship to the left
-                    self.ship.moving_left = True
+                self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False
-                if event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False
+                self._check_keyup_events(event)
+
+    def _check_keydown_events(self, event):
+        """Respond to keypress"""
+        # events https://www.raspberry-pi-geek.com/Archive/2014/05/Pygame-modules-for-interactive-programs
+        if event.key == pygame.K_RIGHT:
+            # Move the ship to the right
+            self.ship.moving_right = True
+        elif event.key ==pygame.K_LEFT:
+            # move ship to the left
+            self.ship.moving_left = True
+
+    def _check_keyup_events(self, event):
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
 
     def _update_screen(self):
         # Redraw the screen each pass through the loop
