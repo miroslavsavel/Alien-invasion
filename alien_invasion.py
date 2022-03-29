@@ -20,6 +20,7 @@ class AlienInvasion:
         self.ship = Ship(self)      # creating ship object with parameter on the object itself
         self.bullets = pygame.sprite.Group()
         # how dows Group method works? - it caan somehow group pyhon objects into "list"
+        # https://kidscancode.org/blog/2016/08/pygame_1-2_working-with-sprites/
 
 
 
