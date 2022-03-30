@@ -32,6 +32,12 @@ class AlienInvasion:
             self.ship.update()
             self.bullets.update() # this will call bullet.update() for each bullet object that we place in the bullets group
             self._update_screen()
+
+            # Get rid of bullets that travel out of the screen
+            for bullet in self.bullets.copy():  #copy is because we cannot change the length of list during loop
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
+            # print(len(self.bullets))      # check if it works correctly
         """============================================================================================="""
 
     def _check_events(self):
@@ -67,7 +73,7 @@ class AlienInvasion:
     def _fire_bullet(self):
         """method creates bullet and add it to the bullet group"""
         new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        self.bullets.add(new_bullet) # similar to append method for list
 
     def _update_screen(self):
         # Redraw the screen each pass through the loop
